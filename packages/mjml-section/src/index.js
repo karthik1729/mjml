@@ -27,6 +27,7 @@ export default class MjSection extends BodyComponent {
     'padding-right': 'unit(px,%)',
     'text-align': 'enum(left,center,right)',
     'text-padding': 'unit(px,%){1,4}',
+    'automation-id': 'string',
   }
 
   static defaultAttributes = {
@@ -401,6 +402,7 @@ export default class MjSection extends BodyComponent {
 
   renderSection() {
     const hasBackground = this.hasBackground()
+    const automationId = this.getAttribute('automation-id')
 
     return `
       <div ${this.htmlAttributes({
@@ -423,6 +425,7 @@ export default class MjSection extends BodyComponent {
             cellspacing: '0',
             role: 'presentation',
             style: 'table',
+            ...(automationId && { 'automation-id': automationId }),
           })}
         >
           <tbody>
