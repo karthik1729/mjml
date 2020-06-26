@@ -28,6 +28,7 @@ export default class MjSection extends BodyComponent {
     'text-align': 'enum(left,center,right)',
     'text-padding': 'unit(px,%){1,4}',
     'automation-id': 'string',
+    'aria-label': 'string',
   }
 
   static defaultAttributes = {
@@ -403,6 +404,7 @@ export default class MjSection extends BodyComponent {
   renderSection() {
     const hasBackground = this.hasBackground()
     const automationId = this.getAttribute('automation-id')
+    const ariaLabel = this.getAttribute('aria-label')
 
     return `
       <div ${this.htmlAttributes({
@@ -433,6 +435,7 @@ export default class MjSection extends BodyComponent {
               <td
                 ${this.htmlAttributes({
                   style: 'td',
+                  ...(ariaLabel && { 'aria-label': ariaLabel }),
                 })}
               >
                 <!--[if mso | IE]>
