@@ -5,6 +5,7 @@ const makeBackgroundString = flow(filter(identity), join(' '))
 
 export default class MjSection extends BodyComponent {
   static allowedAttributes = {
+    'section-wrapper-class': 'string',
     'background-color': 'color',
     'background-url': 'string',
     'background-repeat': 'enum(repeat,no-repeat)',
@@ -435,6 +436,7 @@ export default class MjSection extends BodyComponent {
               <td
                 ${this.htmlAttributes({
                   style: 'td',
+                  class: this.getAttribute('section-wrapper-class'),
                   ...(ariaLabel && { 'aria-label': ariaLabel }),
                 })}
               >
