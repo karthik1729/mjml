@@ -160,7 +160,6 @@ export default class MjButton extends BodyComponent {
                 style: 'content',
                 target: tag === 'a' ? this.getAttribute('target') : undefined,
               })}
-              role="button"
             >
               ${this.getImageContent()}
               ${this.getContent()}
