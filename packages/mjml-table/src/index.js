@@ -25,6 +25,7 @@ export default class MjTable extends BodyComponent {
     'table-layout': 'enum(auto,fixed,initial,inherit)',
     'vertical-align': 'enum(top,bottom,middle)',
     width: 'unit(px,%)',
+    role: 'string',
   }
 
   static defaultAttributes = {
@@ -64,7 +65,7 @@ export default class MjTable extends BodyComponent {
 
   render() {
     const tableAttributes = reduce(
-      ['cellpadding', 'cellspacing'],
+      ['cellpadding', 'cellspacing', 'role'],
       (acc, v) => ({
         ...acc,
         [v]: this.getAttribute(v),
