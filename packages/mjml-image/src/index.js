@@ -61,8 +61,6 @@ export default class MjImage extends BodyComponent {
         'border-top': this.getAttribute('top'),
         'border-bottom': this.getAttribute('bottom'),
         'border-radius': this.getAttribute('border-radius'),
-        display: 'block',
-        outline: 'none',
         'text-decoration': 'none',
         height: this.getAttribute('height'),
         'max-height': this.getAttribute('max-height'),
