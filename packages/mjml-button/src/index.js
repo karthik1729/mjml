@@ -7,7 +7,7 @@ export default class MjButton extends BodyComponent {
 
   static allowedAttributes = {
     align: 'enum(left,center,right)',
-    img:'string',
+    img: 'string',
     'background-color': 'color',
     'border-bottom': 'string',
     'border-left': 'string',
@@ -39,6 +39,7 @@ export default class MjButton extends BodyComponent {
     'vertical-align': 'enum(top,bottom,middle)',
     'text-align': 'enum(left,right,center)',
     width: 'unit(px,%)',
+    'aria-label': 'string',
   }
 
   static defaultAttributes = {
@@ -118,9 +119,9 @@ export default class MjButton extends BodyComponent {
     return `${parsedWidth - innerPaddings - borders}px`
   }
 
-  getImageContent(){
+  getImageContent() {
     const imgSrc = this.getAttribute('img')
-    if(imgSrc){
+    if (imgSrc) {
       return `<img src= ${this.getAttribute('img')} />`
     }
     return ''
@@ -159,6 +160,7 @@ export default class MjButton extends BodyComponent {
                 name: this.getAttribute('name'),
                 style: 'content',
                 target: tag === 'a' ? this.getAttribute('target') : undefined,
+                'aria-label': this.getAttribute('aria-label') || undefined,
               })}
             >
               ${this.getImageContent()}
